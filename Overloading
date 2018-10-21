@@ -1,0 +1,109 @@
+Overloading Method & Operator Overloading
+
+
+
+
+Overloading Method
+
+
+
+
+Overloading method ialah method yangmengeksekusi berdasarkan jumlah parameter yang diinputkan, Beda jumlah parameter maka berbeda pula method yg ditampilkan
+
+
+
+In [37]:
+
+
+
+class obj:
+    def tampil(b=None):
+        if b is not None:
+            print('Ini hanya Menampilkan B = ',b)
+        else:
+            print('B = Kosong')
+a=obj()
+a.tampil()
+a.tampil('A')
+
+
+
+Ini hanya Menampilkan B =  <__main__.obj object at 0x00000221CB8DBD68>
+
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-37-00a1c105e575> in <module>()
+      7 a=obj()
+      8 a.tampil()
+----> 9 a.tampil('A')
+
+TypeError: tampil() takes from 0 to 1 positional arguments but 2 were given
+
+
+
+
+Operator Overloading
+
+
+
+In [25]:
+
+
+
+class point:
+    def __init__(self,x=0,y=0):
+        self.x=x
+        self.y=y
+    def __str__(self):
+        return 'Point This Object is at: ('+str(self.x)+','+str(self.y)+')'
+    def __add__(self,other):
+        x=self.x+other.x
+        y=self.y+other.y
+        return point(x,y)
+p1=point(1,2)
+p2=point(2,4)
+print(p1+p2)
+
+
+
+Point This Object is at: (3,6)
+
+
+
+In [34]:
+
+
+
+#Menghitung Luas
+class point:
+    def __init__(self,x=0,y=0):
+        self.x=x
+        self.y=y
+    def __str__(self):
+        return '>>> Luas Persegi\n'+'Jarak X = '+str(self.x)+'\nJarak Y = '+str(self.y)+'\nLuas = '+str(self.x*self.y)
+    def __sub__(self,other):
+        if self.x< other.x:
+             x=other.x-self.x
+        elif self.x > other.x:
+             x=self.x-other.x
+        if self.y < other.y:
+            y=other.y-self.y
+        elif self.y>other.y:
+            y=self.y-other.y
+        return point(x,y)
+p1=point(8,2)
+p2=point(2,9)
+print(p1-p2)
+
+
+
+>>> Luas Persegi
+Jarak X = 6
+Jarak Y = 7
+Luas = 42
+
+
+
+In [ ]:
+
+
