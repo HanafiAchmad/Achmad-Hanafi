@@ -1,0 +1,81 @@
+Python Inheritance
+
+
+
+
+Inheritance adalah pewarisan class kepada class lain, sehingga class yang menerima warisan bisa mengakses properti & Method pada class yang mewariskan. 
+Namun, induk classnya tak bisa mengakses properti anaknya(class yang menerimawarisan)
+
+
+
+In [13]:
+
+
+
+class User:
+    name=""
+    def __init__(self,name):
+        self.name=name
+    def pn(self):
+        print("Nama :",self.name)
+    def tambah(self,tn):
+        self.name=tn
+class programer(User):
+    def __init__(self,ln): #properti Tambahan
+        self.ln=ln
+    def pln(self): #Method tambahan
+        print("Last Name:", self.ln)
+    def dpython(self):#Method tambahan 2
+        print("Python Programing")
+        
+gg=User("First")
+gg.pn()
+print("")
+diana=programer("Diana")  
+diana.pn() #Belum terdeklarasi Namenya
+diana.pln()
+print("")
+diana.tambah("Syah") #Inisialisasi
+diana.pn()#Setelah di deklarasi
+diana.pln()
+
+
+
+Nama : First
+
+Nama : 
+Last Name: Diana
+
+Nama : Syah
+Last Name: Diana
+
+
+
+In [14]:
+
+
+class reader(User):
+    pass
+a=reader("Andi")
+a.pn()
+
+
+
+Nama : Andi
+
+
+
+
+pass = sama seperti induk classnya
+
+
+
+
+Tugas
+
+
+
+
+Kelas Orang properti Nama seb Orang:Mahasiswa & Pegawai properti mhs : Npm properti pegawai : Nip sub pegawai : Dosen & Karyawan properti dosen :nidn
+Tugasnya : print dosen > Kelas Dosen >> Nama, Nip,Nidn print karyawan > kelas Karyawan >> Nama, Nip
+Note* : Flowalgorith Online Python Tutor
