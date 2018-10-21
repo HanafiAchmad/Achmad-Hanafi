@@ -1,0 +1,124 @@
+Polymorphism
+
+
+
+
+Polymorphism berasal dari kata Poly(Banyak), dan Morphism(Bentuk). Jadi Polimorphism bermakna 'Sesuatu yang memiliki bnyak isi yang berbeda'(Multi-Fungsi).
+
+
+
+
+a. PolyMorphism pada Function
+
+
+
+
+Polymorphism hampir serupa dengan Overriding, Berikut Contoh Codenya :
+
+
+
+In [5]:
+
+
+
+class kadal:
+    def jalan(self):
+        print("Kadal Berjalan dengan kaki")
+class ular:
+    def jalan(self):
+        print("Ular Melatah")
+lizard=kadal()
+lizard.jalan() #Ini polimortphism
+​
+viper=ular()
+viper.jalan() #Isinya Berbeda
+
+
+
+Kadal Berjalan dengan kaki
+Ular Melatah
+
+
+
+
+Cara lain penulisan Syntax Polymorphism :
+
+
+
+In [7]:
+
+
+
+class kadal:
+    def jalan(self):
+        print("Kadal Berjalan dengan kaki")
+class ular:
+    def jalan(self):
+        print("Ular Melatah")
+def polymorph(argumen):
+    argumen.jalan()
+        
+lizard=kadal()
+viper=ular()
+​
+polymorph(lizard)  #ini Polymorph
+polymorph(viper)
+
+
+
+Kadal Berjalan dengan kaki
+Ular Melatah
+
+
+
+
+b. Polymorphism pada class
+
+
+
+
+Contoh Penulisan Syntax pada Polymorphism tingkat class :
+
+
+
+In [8]:
+
+
+for i in (lizard,viper):
+    i.jalan()
+
+
+
+Kadal Berjalan dengan kaki
+Ular Melatah
+
+
+
+
+Contoh Lain:
+
+
+
+In [11]:
+
+
+
+class docu:
+    def __init__(self,tipe):
+        self.tipe=tipe
+class pdf(docu):
+    def show(self):
+        return "Show pdf content"
+class word(docu):
+    def show(self):
+        return "Show word content"
+​
+document=(pdf("Scan Piagam"),word("Python - Inheritance"),pdf("CodeBlockk - Part 4"))
+for i in document:
+    print(i.tipe," : ",i.show())
+
+
+
+Scan Piagam:Show pdf content
+Python - Inheritance:Show word content
+CodeBlockk - Part 4:Show pdf content
