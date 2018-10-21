@@ -1,0 +1,77 @@
+Encapsulation
+
+
+
+
+Encapsulation adalah mekanisme untuk menyembunyikan / Memproteksi suatu proses agar tidak Terjadi penyalahgunaan Di luar sistemnya.
+
+
+
+In [1]:
+
+
+class robot:
+    def __init__(self):
+        self.a=1
+        self._b=2
+        self.__c=3
+obj=robot()
+print(obj.a)
+print(obj._b)
+print(obj.__c)
+
+
+
+1
+2
+
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-1-bf7a1cc3b507> in <module>()
+      7 print(obj.a)
+      8 print(obj._b)
+----> 9 print(obj.__c)
+
+AttributeError: 'robot' object has no attribute '__c'
+
+
+
+
+Jadi Mengapa pemanggialan Variabel C Error?
+
+
+
+
+a. Karena Kalau Dua underscore sebelum variable, menandakan sebuah variabel privat, Pengaksesanya susah dan membutuhkan Method khusus untuk mengelolanya. b. Jika satu Underscore sebelum variabelnya, menandakan Sebuad variabel Privat seharusnya tidak diakses secara langsung.
+
+
+
+
+Metode Getter dan Setter
+
+
+
+
+Dengan Metode Ini, variable privat bisa diakses dengan menggunakan akses secara tidak langsung kepada variable privat. 
+
+Getter Ialah Metode yang digunakan untuk menampilkan Variabel yang Terproteksi dua Underscore didepannya
+Sedangkan Setter adalah Metode yang berguna untuk mengubah isi dari variabelnya.
+
+
+
+In [ ]:
+
+
+class robot:
+    def __init__(self):
+        self.a=1
+        self._b=2
+        self.__c=3
+    def getter(self):
+        print(self.__c)
+    def setter(self,arg):
+        self.__c=arg
+obj=robot()
+obj.getter()
+ob.setter("Variabel C  Telah dirubah")
+obj.getter
