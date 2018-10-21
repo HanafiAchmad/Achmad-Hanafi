@@ -1,0 +1,201 @@
+Macam-macam Inheritance
+
+
+
+
+Inheritance (Pewarisan Properti dan method dari induk class) memiliki beberapa type, diantaranya :
+Default
+Overriding
+Super
+Multiple
+
+
+
+
+1. Default
+
+
+
+
+Isinya sama dengan class induknya
+Contoh :
+
+
+
+In [ ]:
+
+
+class hiu(induk):
+    pass
+
+
+
+
+
+
+
+2. Overriding
+
+
+
+
+Anak kelas yang merubah properti / Method pada kelas induk
+
+
+
+
+contoh :
+
+
+
+In [ ]:
+
+
+
+class induk:
+    def __init__(self,nama="Saya"):
+        self.nama=nama
+    def tugas(self):
+        print("Ini method Induk")
+class anak(induk):
+     def __init__(self,nama="kamu"): # Overide properti
+        self.nama=nama
+    def tugas(self): #Overide Method induk
+        print("Ini Override")
+
+
+
+
+
+
+
+Contoh Program 2:
+
+
+
+In [1]:
+
+
+
+class Segitiga:
+    def __init__(self,jumlahsegi="3",bentuksegitiga="Sembarang"):
+        self.jumlahsegi=jumlahsegi
+        self.bentuksegitiga=bentuksegitiga
+    def ps(self):
+        print(self.jumlahsegi,self.bentuksegitiga,"\n")
+        
+class SegitigaSamaKaki(Segitiga):
+    def __init__(self,jumlahsegi="3",bentuksegitiga="Sama Kaki"):
+        self.jumlahsegi=jumlahsegi
+        self.bentuksegitiga=bentuksegitiga
+        
+class SegitigaSamaSisi(Segitiga):
+    def __init__(self,jumlahsegi="3",bentuksegitiga="Sama Sisi"):
+        self.jumlahsegi=jumlahsegi
+        self.bentuksegitiga=bentuksegitiga
+​
+s=Segitiga()
+s.ps()
+a=SegitigaSamaKaki()
+a.ps()
+b=SegitigaSamaSisi()
+b.ps()
+
+
+
+3 Sembarang 
+
+3 Sama Kaki 
+
+3 Sama Sisi 
+
+
+
+
+
+3. Super
+
+
+
+
+Digunakan Untuk Inisiasi properti class parrent pada class anak
+
+
+
+In [21]:
+
+
+class Fish:
+    def __init__(self,fish="Ikan"):
+        self.fish=fish
+    def pnj(self):
+        print(self.fish)
+        print(self.water)
+class trout(Fish):
+    def __init__(self,water="fresh"):
+        self.water=water
+        Fish.__init__(self)
+        #Atau :
+        #super().__init__(self)
+a=trout()
+a.pnj()
+
+
+
+Ikan
+fresh
+
+
+
+
+4. Multiple
+
+
+
+
+Anak class yang memiliki 2 atau lebih Parent class
+
+
+
+In [37]:
+
+
+
+class psn:
+    def __init__(self):
+        self.nama=input("Nama : ")
+    def dp(self):
+        print(self.nama)
+class mark:
+    def __init__(self):
+        self.npm=input("Npm :")
+        self.mtk=input("Mtk :")
+        self.bio=input("Bio :")
+    def dps(self):
+        print("npm :", self.npm)
+        print("nilai : ",int(self.mtk+self.bio)//2)
+class mhs(psn,mark):
+    def __init__(self):
+        psn.__init__(self)
+        mark.__init__(self)
+    def pnk(self):
+        print(psn.dp(self),
+             mark.dps(self))
+a=mhs()
+a.pnk()
+
+
+
+Nama : a
+Npm :1
+Mtk :1
+Bio :1
+a
+npm : 1
+nilai :  5
+None None
+
+
+
+
+## 
